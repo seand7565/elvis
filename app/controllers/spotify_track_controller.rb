@@ -1,9 +1,13 @@
 class SpotifyTrackController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def create
-    spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
-    playlist = RSpotify::Playlist.find('3ghCcmmzyqsf864poIstH9')
-    track = request.body["event"]["links"][0]["url"]
-    playlist.add_tracks!([track])
+    if event = JSON.parse(request.body.read)["event"]
+      spotify_user = RSpotify::User.new(Rails.cache.read("user"))
+      playlist = RSpotify::Playlist.find(ENV['SPOTIFY_USER'], ENV['SPOTIFY_PLAYLIST_ID'])
+      track = event["links"][0]["url"].match(/(?<=\/track\/)(\w+)/)[0]
+      playlist.add_tracks!(["spotify:track:#{track}"])
+    end
 
     render json: request.body
   end
