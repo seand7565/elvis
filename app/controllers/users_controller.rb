@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def spotify
-    Rails.cache.write("user", RSpotify::User.new(request.env['omniauth.auth']).to_hash)
+    if spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
+      User.create(user_hash: spotify_user.to_hash)
+    end
   end
 end
