@@ -1,2 +1,4 @@
-Authenticate here: 
-<%= link_to 'Sign in with Spotify', '/auth/spotify' %>
+<% if @is_admin %>
+  Authenticate here: 
+  <%= link_to 'Sign in with Spotify', '/auth/spotify' %>
+<% end %>

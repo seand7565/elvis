@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def spotify
     if spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
-      User.create(user_hash: spotify_user.to_hash)
+      User.find_by(email: "elvisstack@gmail.com").update(user_hash: spotify_user.to_hash)
     end
   end
 end
