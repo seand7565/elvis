@@ -7,7 +7,12 @@ module Elvis
           Hometown,
           ObscureSongs,
           Regions,
-          Genres
+          Genres,
+          Catchy,
+          ElvisSongs,
+          Emotion,
+          GuiltyPleasure,
+          PlaylistSwap
         ]
       end
     end

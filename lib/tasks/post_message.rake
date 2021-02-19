@@ -4,7 +4,7 @@ task :post_messages => :environment do |t, args|
     user = User.find_by(email: "elvisstack@gmail.com")
     return unless user
 
-    received_messages = user.messages.last(3).pluck(:message_type)
+    received_messages = user.messages.last(8).pluck(:message_type)
     possible_messages = Elvis::Messages::Configuration.messages - received_messages
 
     message = user.messages.create!(message_type: possible_messages.sample)
