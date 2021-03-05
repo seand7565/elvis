@@ -12,7 +12,8 @@ module Elvis
           ElvisSongs,
           Emotion,
           GuiltyPleasure,
-          PlaylistSwap
+          PlaylistSwap,
+          Focus
         ]
       end
     end
