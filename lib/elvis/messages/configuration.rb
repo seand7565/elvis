@@ -13,7 +13,11 @@ module Elvis
           Emotion,
           GuiltyPleasure,
           PlaylistSwap,
-          Focus
+          Focus,
+          GrowingUp,
+          FirstAlbum,
+          Weird,
+          Source
         ]
       end
     end
