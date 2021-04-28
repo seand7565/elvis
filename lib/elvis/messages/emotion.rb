@@ -11,7 +11,8 @@ module Elvis
           "sad",
           "angry",
           "excited",
-          "pumped"
+          "pumped",
+          "in love"
         ].sample
       end
     end
