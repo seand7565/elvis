@@ -17,7 +17,15 @@ module Elvis
           GrowingUp,
           FirstAlbum,
           Weird,
-          Source
+          Source,
+          SingAlong,
+          KnowHowToPlay,
+          MusicVideo,
+          Karaoke,
+          RightNow,
+          Annoying,
+          FavoriteBand,
+          LastConcert
         ]
       end
     end
