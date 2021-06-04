@@ -6,7 +6,7 @@ module Elvis
       end
 
       def self.songs_this_week
-        Track.where("created_at >= ?", 1.week.ago).where(state: "posted").count
+        Track.where("created_at >= ?", 1.week.ago).where(state: "posted")
       end
 
       def self.most_frequent_contributor
@@ -14,7 +14,7 @@ module Elvis
       end
 
       def self.prize
-        [🏆,🥞,🎂,🎖️,✨,💙,💰].sample
+        [:🏆,:🥞,:🎂,:🎖️,:✨,:💙,:💰].sample
       end
     end
   end
