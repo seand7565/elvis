@@ -1,9 +1,9 @@
 desc 'Post messages to slack'
 task :post_messages => :environment do |t, args|
-  if [2,4].include? Date.today.wday
-    user = User.find_by(email: "elvisstack@gmail.com")
-    return unless user
+  user = User.find_by(email: "elvisstack@gmail.com")
+  return unless user
 
+  if [2,4].include? Date.today.wday
     received_messages = user.messages.last(20).pluck(:message_type).map(&:constantize)
     possible_messages = Elvis::Messages::Configuration.messages - received_messages
 
