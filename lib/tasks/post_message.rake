@@ -11,7 +11,7 @@ task :post_messages => :environment do |t, args|
       message = user.messages.create!(message_type: possible_messages.sample)
       message.post!
     elsif Date.today.wday == 5
-      message = user.messages.create!(message_type: ::Elvis::Messages::Meta)
+      message = user.messages.create!(message_type: ::Elvis::Messages::SwanSong)
       message.post!
     end
   end
